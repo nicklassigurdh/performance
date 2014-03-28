@@ -1,0 +1,3 @@
+/*! performance - v0.0.1 - 2014-03-28
+* Copyright (c) 2014 ; Licensed  */
+define([],function(){var a=function(){var a=document.createElement("div");a.id="perfLoggerDiv",a.style.display="none",document.body.insertBefore(a)},b=0,c=a.prototype;c.init=function(){},c.log=function(a){b++;var c=document.createElement("div");c.appendChild(document.createTextNode(a)),c.id="logg-"+b,c.setAttribute("now",Date.now()),document.getElementById("perfLoggerDiv").insertBefore(c)};var d=new a;return d.init(),d});

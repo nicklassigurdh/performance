@@ -13,12 +13,12 @@ module.exports = function(grunt) {
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
     clean: {
-      files: ['dist']
+      files: ['build']
     },
     copy: {
-      main: {
-          src: 'src/**/*.js',
-          dest: 'dist/',
+      dist: {
+          src: 'build/performance.min.js',
+          dest: 'demo-app/script/performance.js',
       },
     },
     uglify: {
@@ -27,8 +27,23 @@ module.exports = function(grunt) {
       },
       dist: {
           src: 'src/*',
-          dest: 'dist/performance.min.js'
+          dest: 'build/performance.min.js'
       },
+    },
+    watch: {
+      scripts: {
+          files: ['src/*.js'],
+          tasks: ['dist'],
+      },
+    },
+    connect: {
+      server: {
+          options: {
+              port: 9080,
+              base: 'demo-app',
+              keepalive: true,
+          }
+      }
     },
   });
 
@@ -36,10 +51,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
   //grunt.registerTask('default', ['jshint', 'qunit', 'clean', 'requirejs', 'concat', 'uglify']);
   grunt.registerTask('build', ['uglify']);
+  grunt.registerTask('dist', ['build','copy']);
   grunt.registerTask('default', ['clean', 'build']);
 
   //grunt.registerTask('preview', ['connect:development']);
