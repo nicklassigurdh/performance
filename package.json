@@ -1,0 +1,23 @@
+{
+  "name": "performance",
+  "version": "0.0.1",
+  "author": "Nicklas Sigurdh <nicklas_sigurdh@hotmail.com>",
+  "description": "Measurestuff and log them to the dom",
+  "contributors": [
+    {
+      "name": "Nicklas Sigurdh",
+      "email": "nicklas_sigurdh@hotmail.com"
+    }
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-uglify": "^0.4.0"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.8"
+  }
+}
