@@ -36,7 +36,7 @@ define([], function() {
            // oldOnload = window.onload;
 
 
-             counter++;
+
              var loggDiv = createElement('Page loaded...');
              //performance data and add it as attributes.
              loggDiv.setAttribute("TimeStamp", Date.now());
